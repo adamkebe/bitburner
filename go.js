@@ -22,11 +22,15 @@ export async function main(ns) {
   // Options
 
   let logBlockMoves = false
-  let logTargetMoves = true
-  let logDebug = true
+  let logTargetMoves = false
+  let logDebug = false
   let resetOnStart = true
   let loop = true
   let faction = "Slum Snakes"
+  if(ns.args[0] != undefined) {
+    faction = ns.args[0]
+    //ns.print("faction changed to ", faction);
+  }
   //Faction options:
   // "No AI"
   // "Netburners"
@@ -36,7 +40,7 @@ export async function main(ns) {
   //
 
   let boardsize = 7
-  let addedWait = true
+  let addedWait = false
 
   // Starts new board
   if (resetOnStart) {
