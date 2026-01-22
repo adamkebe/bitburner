@@ -41,7 +41,7 @@ export async function main(ns) {
   // Starts new board
   if (resetOnStart) {
     ns.go.resetBoardState(faction, boardsize);
-    ns.tprint("New game");
+    ns.print("New game");
   }
   if (addedWait) { await ns.sleep(3000) };
   // Declare variables
@@ -49,9 +49,9 @@ export async function main(ns) {
   x = 0
   y = 0
   let target = null
-  ns.tprint(target)
+  ns.print(target)
   let targetMoves = []
-  ns.tprint(targetMoves)
+  ns.print(targetMoves)
   let firstMove = null
 
   //Declare move types
@@ -103,8 +103,8 @@ export async function main(ns) {
     // }
     // }
     if (!started === true) {
-      ns.tprint(board);
-      ns.tprint("No black stones, placing stone at centre");
+      ns.print(board);
+      ns.print("No black stones, placing stone at centre");
       targetMoves.push([3, 3])
       started = true
       firstMove = true
@@ -114,22 +114,22 @@ export async function main(ns) {
 
     // Checks for a target
     if (logDebug) {
-      ns.tprint("target check and splice ", target)
-      ns.tprint("is target not equal to null? ", !target === null)
+      ns.print("target check and splice ", target)
+      ns.print("is target not equal to null? ", !target === null)
     }
     if (targetMoves.length > 0) {
       // check the target moves list and go to the next valid one, remove any invalid ones
       for (let k = 0; k < targetMoves.length; k++) {
         if (logDebug) {
-          ns.tprint("checking for null in target move, ", targetMoves[k])
-          ns.tprint("x ", targetMoves[k][0])
-          ns.tprint("does x = null? ", targetMoves[k][0] === undefined)
-          ns.tprint("y ", targetMoves[k][1])
-          ns.tprint("does y = null? ", targetMoves[k][1] === undefined)
+          ns.print("checking for null in target move, ", targetMoves[k])
+          ns.print("x ", targetMoves[k][0])
+          ns.print("does x = null? ", targetMoves[k][0] === undefined)
+          ns.print("y ", targetMoves[k][1])
+          ns.print("does y = null? ", targetMoves[k][1] === undefined)
         }
         if (targetMoves[k][0] === undefined || targetMoves[k][1] === undefined) {
           if (logDebug) {
-            ns.tprint("null, removed from targetMoves ", targetMoves[k])
+            ns.print("null, removed from targetMoves ", targetMoves[k])
           }
           targetMoves.splice(k, 1);
           k--
@@ -137,17 +137,17 @@ export async function main(ns) {
       }
       for (let k = 0; k < targetMoves.length; k++) {
         if (logDebug) {
-          ns.tprint("checking for invalid in target move, ", targetMoves[k])
+          ns.print("checking for invalid in target move, ", targetMoves[k])
         }
         if (!validMoves[targetMoves[k][0]][targetMoves[k][1]]) {
           if (logDebug) {
-            ns.tprint("invalid, removed from targetMoves ", targetMoves[k])
+            ns.print("invalid, removed from targetMoves ", targetMoves[k])
           }
           targetMoves.splice(k, 1);
           k--
           if (k === targetMoves.length) {
             target = null
-            ns.tprint("target blocked, target cleared")
+            ns.print("target blocked, target cleared")
           }
         }
 
@@ -161,17 +161,17 @@ export async function main(ns) {
         // goes through column i to find instances of 0        
         for (let h = 0; h < board[i].length; h++) {
           if (board[i][h] == "O") {
-            ns.tprint("white stone found at ", [i, h]);
+            ns.print("white stone found at ", [i, h]);
             if (logDebug) {
-              ns.tprint("board i h ", board[i][h])
-              ns.tprint("h ", h)
+              ns.print("board i h ", board[i][h])
+              ns.print("h ", h)
             }
             //check valid moves around target
             let targetX = i
             let targetY = h
             //let targetY = board[i].indexOf("O")
             target = [targetX, targetY]
-            if (logTargetMoves) { ns.tprint("block target ", target) }
+            if (logTargetMoves) { ns.print("block target ", target) }
             let pointUp = [targetX, targetY + 1]
             let pointDown = [targetX, targetY - 1]
             let pointLeft = [targetX - 1, targetY]
@@ -180,12 +180,12 @@ export async function main(ns) {
             // Removes any undefined point from blockMoves (ie. x or y = -1)
             for (let j = 0; j < (blockMoves.length); j++) {
               if (logBlockMoves) {
-                ns.tprint("move# ", j, "co-ordinates ", blockMoves[j]);
-                ns.tprint("full blockMoves list ", blockMoves);
+                ns.print("move# ", j, "co-ordinates ", blockMoves[j]);
+                ns.print("full blockMoves list ", blockMoves);
               }
               if (blockMoves[j].includes(-1) || blockMoves[j].includes(board[0].length)) {
                 if (logBlockMoves) {
-                  ns.tprint("Removing ", blockMoves[j], "from blockMoves")
+                  ns.print("Removing ", blockMoves[j], "from blockMoves")
                 }
                 blockMoves.splice(j, 1)
                 j--
@@ -197,15 +197,15 @@ export async function main(ns) {
 
             }
             if (logBlockMoves) {
-              ns.tprint("block moves", blockMoves);
+              ns.print("block moves", blockMoves);
             }
             let freeMoves = 0
             //targetMoves = []
             for (let j = 0; j < blockMoves.length; j++) {
               //validMoves[blockMoves[j][0]][blockMoves[j][1]] === true
               if (logBlockMoves) {
-                ns.tprint("blockMoves #", j, " ", blockMoves[j], "x ", blockMoves[j][0], " y ", blockMoves[j][1])
-                ns.tprint("valid? ", validMoves[blockMoves[j][0]][blockMoves[j][1]]);
+                ns.print("blockMoves #", j, " ", blockMoves[j], "x ", blockMoves[j][0], " y ", blockMoves[j][1])
+                ns.print("valid? ", validMoves[blockMoves[j][0]][blockMoves[j][1]]);
               }
               if (validMoves[blockMoves[j][0]][blockMoves[j][1]] && targetMoves.indexOf(blockMoves[j]) < 0) {
                 freeMoves += 1
@@ -215,13 +215,13 @@ export async function main(ns) {
             }
             if (freeMoves === 0) {
               if (logTargetMoves) {
-                ns.tprint("Blocked ", target);
+                ns.print("Blocked ", target);
               }
               target = null
             }
             else {
               if (logTargetMoves) {
-                ns.tprint("Target moves ", targetMoves);
+                ns.print("Target moves ", targetMoves);
               }
               //break;
             }
@@ -272,23 +272,23 @@ export async function main(ns) {
 
     // Loop: checks the next target move and sets it as the next move if valid, removes it if invalid
     // Adjust this to find and use the last target until it's blocked
-    if (logTargetMoves) { ns.tprint("target ", target) }
+    if (logTargetMoves) { ns.print("target ", target) }
     if (targetMoves != null) { ns.tprint("target moves", targetMoves) }
     if (started === true && target != null) {
-      ns.tprint("finding target")
+      ns.print("finding target")
       for (let k = 0; k < targetMoves.length; k++) {
         if (validMoves[targetMoves[k][0]][targetMoves[k][1]]) {
           x = targetMoves[k][0]
           y = targetMoves[k][1]
-          ns.tprint("valid move? ", validMoves[targetMoves[k][0]][targetMoves[k][1]])
-          ns.tprint("placing stone on ", targetMoves[k]);
+          ns.print("valid move? ", validMoves[targetMoves[k][0]][targetMoves[k][1]])
+          ns.print("placing stone on ", targetMoves[k]);
           if (targetMoves == null) { target = null }
           if (targetMoves == []) { target = null }
           if (targetMoves[k] == null) { target = null }
           break
         }
         else {
-          ns.tprint("invalid move ", targetMoves[k])
+          ns.print("invalid move ", targetMoves[k])
           targetMoves.splice(k, 1)
           k--;
           if (targetMoves == null) { target = null }
@@ -318,18 +318,18 @@ export async function main(ns) {
       //x = randX;
       //y = randY;
       targetMoves.push([randX, randY])
-      ns.tprint("no target ", target);
-      ns.tprint("making random move ", [randX, randY]);
+      ns.print("no target ", target);
+      ns.print("making random move ", [randX, randY]);
     }
 
     if (targetMoves.length < 1 || targetMoves[0][0] === undefined || targetMoves[0][1] === undefined) {//x === undefined) {
       // Pass turn if no moves are found
       result = await ns.go.passTurn();
-      ns.tprint("passing");
+      ns.print("passing");
     } else {
       // Play the selected move
-      ns.tprint("playing ", targetMoves[0])
-      ns.tprint("______________________")
+      ns.print("playing ", targetMoves[0])
+      ns.print("______________________")
       result = await ns.go.makeMove(targetMoves[0][0], targetMoves[0][1]);
       if (firstMove === true) {
         firstMove = false
@@ -344,7 +344,7 @@ export async function main(ns) {
 
     if (result?.type == "gameOver" && loop === true) {
       ns.go.resetBoardState(faction, boardsize);
-      ns.tprint("Game over, starting new game");
+      ns.print("Game over, starting new game");
       if (addedWait) { await ns.sleep(3000) };
     }
 
