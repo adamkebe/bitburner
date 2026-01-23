@@ -1,6 +1,6 @@
 /** @param {NS} ns */
 /* download this script in the terminal using:
-wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/update.js","update.js")
+wget https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/update.js update.js
 then start the script to download all of the others
 */
 export async function main(ns) {
