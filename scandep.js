@@ -70,6 +70,7 @@ export async function main(ns) {
       ns.print(t, " -deploying root");
       if(terminalPrint) {
         ns.tprint(t, " -deploying root")
+        ns.run("findserver.js", 1, t)
       }
       numNewHacked += 1
       //ns.scp("deploy.js",host,"home");
