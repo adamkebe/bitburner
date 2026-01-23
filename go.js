@@ -277,7 +277,7 @@ export async function main(ns) {
     // Loop: checks the next target move and sets it as the next move if valid, removes it if invalid
     // Adjust this to find and use the last target until it's blocked
     if (logTargetMoves) { ns.print("target ", target) }
-    if (targetMoves != null) { ns.tprint("target moves", targetMoves) }
+    if (targetMoves != null) { ns.print("target moves", targetMoves) }
     if (started === true && target != null) {
       ns.print("finding target")
       for (let k = 0; k < targetMoves.length; k++) {
