@@ -30,16 +30,17 @@ export async function main(ns) {
       if (neighbor[j] === "home") { ns.print("-home not added") }
       else if (allservers.indexOf(neighbor[j]) < 0) {
         allservers.push(neighbor[j]);
-        ns.tprint(neighbor[j], " added to server list")
+        ns.print(neighbor[j], " added to server list")
       }
       else {
-        ns.tprint(neighbor[j], "duplicate not added")
+        ns.print(neighbor[j], "duplicate not added")
       }
 
     }
   }
   await ns.write("allservers.txt", JSON.stringify(allservers), "w");
   await ns.write("serverdetails.txt", JSON.stringify(serverDetails), "w");;
-  ns.tprint("full server list ", allservers)
-  ns.tprint("server details ", serverDetails)
+  ns.print("full server list ", allservers)
+  ns.print("server details ", serverDetails)
+  ns.tprint("server scan complete")
 }
