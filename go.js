@@ -216,14 +216,15 @@ export async function main(ns) {
                 targetMoves.push(blockMoves[j])
                 //ns.tprint("New target moves, full list", targetMoves);
               }
-              if (freeMoves === 1) {
-              targetMoves.splice(0,0,blockMoves[j])
+              
+              
+            }
+            if (freeMoves === 1) {
+              targetMoves.splice(0,0,targetMoves[targetMoves.length-1])
               if(logTargetMoves) {
                 ns.print("white stone threatened, priority move")
               }
-              }
-            }
-  
+  }
             if (freeMoves === 0) {
               if (logTargetMoves) {
                 ns.print("Blocked ", target);
