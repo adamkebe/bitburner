@@ -20,6 +20,10 @@ export async function main(ns) {
         ns.tprint(targetServer)
         break
       }
+      if(i == serverDetails.length - 1 && serverDetails[i] != ns.args[0]) {
+      ns.tprint("server not found")
+        break
+      }
     }
   }
   /*while (higherServer != "home") {
