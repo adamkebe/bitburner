@@ -2,10 +2,14 @@
 export async function main(ns) {
   let fileContent = ns.read("serverdetails.txt");
   let serverDetails = JSON.parse(fileContent);
+  fileContent = ns.read("allservers.txt");
+  let allServers = JSON.parse(fileContent);
   let higherServer = "none";
-  let targetServer = "CSEC"
-  if (ns.args[0] != undefined) {
-    targetServer = ns.args[0]
+  if (ns.args[0] != undefined && allServers.includes(ns.args[0])) {
+    let targetServer = ns.args[0]
+  }
+  else {
+    ns.tprint("server not found")
   }
   let serverPath = [targetServer]
   let i = 0
@@ -18,10 +22,6 @@ export async function main(ns) {
         serverPath.push(higherServer)
         targetServer = higherServer
         ns.tprint(targetServer)
-        break
-      }
-      if(i == serverDetails.length - 1 && serverDetails[i] != ns.args[0]) {
-      ns.tprint("server not found")
         break
       }
     }
