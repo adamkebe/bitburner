@@ -6,8 +6,8 @@ await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/m
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/scandep.js","scandep.js")
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/scanloop.js","scanloop.js")
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/findserver.js","findserver.js")
-  /*await ns.wget("","deploy.js")
-  await ns.wget()
-  await ns.wget()
-  */
+  //await ns.wget("","deploy.js")
+  await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/contract-crawler.js","contract-crawler.js")
+  //await ns.wget()
+  
 }
