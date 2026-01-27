@@ -10,6 +10,7 @@ export async function main(ns) {
   }
   else {
     ns.tprint("server not found")
+    break
   }
   let serverPath = [targetServer]
   let i = 0
