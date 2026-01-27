@@ -2,7 +2,7 @@
 export async function main(ns) {
   let fileContent = ns.read("allservers.txt");
   let list = JSON.parse(fileContent);
-  let contractTypes = ns.getContractTypes()
+  let contractTypes = ns.CodingContract.getContractTypes()
 ns.print(contractTypes)
   ns.exit()
   
