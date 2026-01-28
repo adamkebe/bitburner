@@ -22,9 +22,12 @@ ns.print(contractTypes)
 */
  
   for (let i = 0; i < list.length; i++) {
-    let t = list[i]; ns.print(t);
+    let t = list[i]; 
     let files = ns.ls(t)
+    if(files.length>0) {
+    ns.print(t);
     ns.print(files)
+    }
   }
     ns.exit()
 
