@@ -25,6 +25,7 @@ ns.print(contractTypes)
     let t = list[i]; ns.print(t);
     let files = ns.ls(t)
     ns.print(files)
+  }
     ns.exit()
 
 
@@ -90,7 +91,7 @@ ns.print(contractTypes)
       ns.exec("deploy.js", host, 1, t);
       await ns.sleep(50);
     } */
-  }
+  
   /*
   ns.tprint("already hacked servers ", numOldHacked)
   ns.tprint("new hacked servers ", numNewHacked)
