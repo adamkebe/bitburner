@@ -13,7 +13,7 @@ export async function main(ns) {
     ns.tprint("server not found")
     ns.exit()
   }
-  let serverPath = targetServer
+  let serverPath = [targetServer]
   let i = 0
   ns.tprint("looking for ", targetServer)
   while (higherServer != "home") {
