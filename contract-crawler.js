@@ -23,10 +23,13 @@ ns.print(contractTypes)
  
   for (let i = 0; i < list.length; i++) {
     let t = list[i]; 
-    let files = ns.ls(t)
-    if(files.length>0) {
-    ns.print(t);
-    ns.print(files)
+    const files = ns.ls(t)
+    let findcontract = files.find(myFunction);
+function myFunction(value, index, array) {
+  return value.includes("cct");
+}
+    if(value != undefined) {
+    ns.print(t + " " + files)
     }
   }
     ns.exit()
