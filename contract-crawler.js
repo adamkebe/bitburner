@@ -28,7 +28,7 @@ ns.print(contractTypes)
 function myFunction(value, index, array) {
   return value.includes("cct");
 }
-    if(value != undefined) {
+    if(findcontract != undefined) {
     ns.print(t + " " + files)
     }
   }
