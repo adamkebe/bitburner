@@ -5,8 +5,9 @@ export async function main(ns) {
   fileContent = ns.read("allservers.txt");
   let allServers = JSON.parse(fileContent);
   let higherServer = "none";
+  let targetServer = null
   if (ns.args[0] != undefined && allServers.includes(ns.args[0])) {
-    let targetServer = ns.args[0]
+   targetServer = ns.args[0]
   }
   else {
     ns.tprint("server not found")
