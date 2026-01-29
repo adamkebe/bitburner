@@ -32,6 +32,7 @@ function myFunction(value, index, array) {
     if(findcontract != undefined) {
     ns.print(t + " " + files)
     contracts.push(files)
+      // push file and server, make contracts an object with file name and server as properties
       
     }
   }
@@ -39,6 +40,14 @@ function myFunction(value, index, array) {
   ns.print(contracts)
   // contracts filter non-contracts
   ns.writePort(80, contracts)
+  // make read variable
+  // make arg1 variable
+  if(ns.args[0] == "read") {
+    for(let i = 0; i < contracts.length ; i++) {
+      ns.tprint(i + " " + contracts[i])
+    }
+  }
+// add arg1 "if" to read the contract
     ns.exit()
 
 
