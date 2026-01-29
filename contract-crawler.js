@@ -2,6 +2,7 @@
 export async function main(ns) {
   let fileContent = ns.read("allservers.txt");
   let list = JSON.parse(fileContent);
+  let contracts = []
 /*
   let contractTypes = ns.CodingContract.getContractTypes()
 ns.print(contractTypes)
@@ -30,8 +31,14 @@ function myFunction(value, index, array) {
 }
     if(findcontract != undefined) {
     ns.print(t + " " + files)
+    contracts.push(files)
+      
     }
   }
+  contracts = contracts.flat()
+  ns.print(contracts)
+  // contracts filter non-contracts
+  ns.writePort(80, contracts)
     ns.exit()
 
 
