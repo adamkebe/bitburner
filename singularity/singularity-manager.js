@@ -3,7 +3,7 @@ export async function main(ns) {
 // Start - for Singularity bitnode
 
 // get hack leel up to 50
-  ns.singularity.universityCourse("Rothman University","Algorithms")
+  ns.singularity.universityCourse("Rothman University","Data Structures")
   while(ns.getHackingLevel() < 50) {
     await ns.sleep(10000)
     ns.getHackingLevel()
@@ -19,13 +19,26 @@ ns.getPlayer.strength()
 ns.getPlayer.defense()
 ns.getPlayer.dexterity()
 ns.getPlayer.agility()
-  */
 
+agility	"agi"	
+defense	"def"	
+dexterity	"dex"	
+strength	"str"
+  */
+  let gymWaitTime = 3000
+ns.singularity.gymWorkout("Powerhouse Gym", "str")
+await ns.asleep(gymWaitTime)
+  ns.singularity.gymWorkout("Powerhouse Gym", "def")
+await ns.asleep(gymWaitTime)
+  ns.singularity.gymWorkout("Powerhouse Gym", "dex")
+await ns.asleep(gymWaitTime)
+  ns.singularity.gymWorkout("Powerhouse Gym", "agi")
+await ns.asleep(gymWaitTime)
   
   // commit crime up to $1m
   
 //  ns.singularity.commitCrime("Homicide")
-
+ns.singularity.commitCrime("Homicide")
 // gym loop to get homicide up to min 80%
   
 // Future Loop
