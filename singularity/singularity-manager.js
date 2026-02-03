@@ -1,0 +1,39 @@
+/** @param {NS} ns */
+export async function main(ns) {
+// Start - for Singularity bitnode
+
+// get hack leel up to 50
+  ns.singularity.universityCourse("Rothman University","Algorithms")
+  while(ns.getHackingLevel() < 50) {
+    await ns.sleep(10000)
+    ns.getHackingLevel()
+  }
+    
+// create bruteSSH and FTPcrack
+
+// get strength, defense, dexterity and agility up to 30
+  
+//  PowerhouseGym
+  /*
+ns.getPlayer.strength()
+ns.getPlayer.defense()
+ns.getPlayer.dexterity()
+ns.getPlayer.agility()
+  */
+
+  
+  // commit crime up to $1m
+  
+//  ns.singularity.commitCrime("Homicide")
+
+// gym loop to get homicide up to min 80%
+  
+// Future Loop
+/*
+ns.run("gym.js")
+ns.run("crime.js")
+ns.run("program.js")
+ns.run("university.js")
+*/
+
+}
