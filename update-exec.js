@@ -8,6 +8,7 @@ await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/m
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/findserver.js","findserver.js")
   //await ns.wget("","deploy.js")
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/contract-crawler.js","contract-crawler.js")
+  await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/singularity/singularity-manager.js","singularity-manager.js")
   //await ns.wget()
   
 }
