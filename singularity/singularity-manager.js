@@ -25,7 +25,15 @@ defense	"def"
 dexterity	"dex"	
 strength	"str"
   */
-  let gymWaitTime = 3000
+
+  
+ /* while(ns.getHackingLevel() < 50) {
+    await ns.sleep(10000)
+    ns.getHackingLevel()
+  */
+let n = 0
+  while(n < 10) {
+    let gymWaitTime = 60000
 ns.singularity.gymWorkout("Powerhouse Gym", "str")
 await ns.asleep(gymWaitTime)
   ns.singularity.gymWorkout("Powerhouse Gym", "def")
@@ -34,6 +42,8 @@ await ns.asleep(gymWaitTime)
 await ns.asleep(gymWaitTime)
   ns.singularity.gymWorkout("Powerhouse Gym", "agi")
 await ns.asleep(gymWaitTime)
+  n++
+  }
   
   // commit crime up to $1m
   
