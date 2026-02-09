@@ -28,6 +28,12 @@ export async function main(ns) {
       }
     }
   }
+  let portNumber = 90
+  ns.writePort(portNumber, serverPath)
+  ns.writePort(1, ns.script()+" wrote port "+portNumber)
+
+  //teet code
+  ns.print(ns.readPort(90))
   /*while (higherServer != "home") {
   }
   ns.tprint("all servers found")
