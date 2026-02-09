@@ -79,9 +79,9 @@ export async function main(ns) {
       await ns.sleep(50);
       ns.run("findserver.js", 1, t, "silent")
       let backdoorServers = ns.readPort(90)
-      for(let k = backdoorServers.length - 1; k > 0; k--) {
+      for(let k = backdoorServers.length - 1; k >= 0; k--) {
         await ns.singularity.connect(backdoorServers[k])
-        if(ns.getServer(backdoorServers[k]).backdoorinstalled) {
+        if(!ns.getServer(backdoorServers[k]).backdoorinstalled) {
         await ns.singularity.installBackdoor(backdoorServers[k])
         }
         
