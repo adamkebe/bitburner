@@ -81,7 +81,7 @@ export async function main(ns) {
       let backdoorServers = ns.readPort(90)
       for(let k = backdoorServers.length - 1; k >= 0; k--) {
         await ns.singularity.connect(backdoorServers[k])
-        if(!ns.getServer(backdoorServers[k]).backdoorinstalled) {
+        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home") {
         await ns.singularity.installBackdoor(backdoorServers[k])
         }
         
