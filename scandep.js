@@ -3,6 +3,10 @@ export async function main(ns) {
   let fileContent = ns.read("allservers.txt");
   let list = JSON.parse(fileContent);
   //ns.tprint(list); // Access data
+  let debugLog = false
+  if(ns.args.includes("debug") {
+    debugLog = true
+  }
 
   let host = "home";
   ns.print(list)
@@ -70,7 +74,7 @@ export async function main(ns) {
       ns.print(t, " -deploying root");
       if(terminalPrint) {
         ns.tprint(t, " -deploying root")
-        ns.run("findserver.js", 1, t, "silent")
+        //ns.run("findserver.js", 1, t, "silent")
       }
       numNewHacked += 1
 
@@ -79,8 +83,17 @@ export async function main(ns) {
       await ns.sleep(50);
       ns.run("findserver.js", 1, t, "silent")
       let backdoorServers = ns.readPort(90)
+      if(debugLog) {
+        ns.tprint("backdoor list ",backdoorServers) 
+      }
       for(let k = backdoorServers.length - 1; k >= 0; k--) {
+        if(debugLog) {
+          ns.tprint(backdoorServers[k])
+        }
         await ns.singularity.connect(backdoorServers[k])
+        if(debugLog) {
+          ns.tprint("not backdoored, not home? ", if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home"))
+        }
         if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home") {
         await ns.singularity.installBackdoor(backdoorServers[k])
         }
