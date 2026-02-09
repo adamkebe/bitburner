@@ -33,7 +33,7 @@ export async function main(ns) {
   ns.writePort(1, ns.getScriptName()+" wrote port "+portNumber)
 
   //teet code
-  ns.print("data from port "+ns.peekPort(90))
+  ns.print("data from port "+ns.peek(90))
   /*while (higherServer != "home") {
   }
   ns.tprint("all servers found")
