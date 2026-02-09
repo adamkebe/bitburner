@@ -26,7 +26,7 @@ export async function main(ns) {
     if (ns.fileExists("SQLInject.exe", "home")) { maxports++ }
     let hacklevel = ns.getServerRequiredHackingLevel(t); //ns.tprint(hacklevel);
     let terminalPrint = false
-    let interestingServers = ["CSEC", "avmnite-02h", "I.I.I.I", "Daedalus"]
+    let interestingServers = ["CSEC", "avmnite-02h", "I.I.I.I", "run4theh111z", "Daedalus", "w0rldd4emon"]
     if (interestingServers.includes(t)) {
       terminalPrint = true
     }
@@ -70,12 +70,25 @@ export async function main(ns) {
       ns.print(t, " -deploying root");
       if(terminalPrint) {
         ns.tprint(t, " -deploying root")
-        ns.run("findserver.js", 1, t)
+        ns.run("findserver.js", 1, t, "silent")
       }
       numNewHacked += 1
+
       //ns.scp("deploy.js",host,"home");
       ns.exec("deploy.js", host, 1, list[i]);
       await ns.sleep(50);
+      ns.run("findserver.js", 1, t, "silent")
+      let backdoorServers = ns.readPort(90)
+      //let backdooredServers
+      for(let j = backdoorServers.length - 1, j > 0; j--) {
+        await ns.singularity.connect(backdoorServers[j])
+        //backdoor? backdoorServers[j]
+        //ns.getServer(backdoorServers[j])
+        await ns.singularity.installBackdoor(backdoorServers[j])
+        
+
+      }
+      
     }
   }
   ns.tprint("already hacked servers ", numOldHacked)
