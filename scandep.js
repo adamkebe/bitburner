@@ -95,9 +95,10 @@ export async function main(ns) {
         await ns.singularity.connect(backdoorServers[k])
         if(debugLog) {
           ns.tprint("not backdoored, not home? ", (!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home"))
-            ns.tprint("rooted? ", ns.getServer(backdoorServers[k]).hasadminrights)
+            ns.tprint("rooted? ", ns.getServer(backdoorServers[k]).hasAdminRights)
+          ns.tprint("server: ", ns.getServer(backdoorServers[k]))
         }
-        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasadminrights) {
+        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasAdminRights) {
         await ns.singularity.installBackdoor(backdoorServers[k])
         }
         
