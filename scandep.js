@@ -4,7 +4,8 @@ export async function main(ns) {
   let list = JSON.parse(fileContent);
   //ns.tprint(list); // Access data
   let debugLog = false
-  if(ns.args.includes("debug") {
+  let argarray = ns.args
+  if(argarray.includes("debug") {
     debugLog = true
   }
 
