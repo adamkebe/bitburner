@@ -5,7 +5,7 @@ export async function main(ns) {
   //ns.tprint(list); // Access data
   let debugLog = false
   let argarray = ns.args
-  if(argarray.includes("debug") {
+  if(argarray.includes("debug")) {
     debugLog = true
   }
 
