@@ -94,7 +94,7 @@ export async function main(ns) {
         if(debugLog) {
           ns.tprint("not backdoored, not home? ", if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home"))
         }
-        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home") {
+        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasadminrights) {
         await ns.singularity.installBackdoor(backdoorServers[k])
         }
         
