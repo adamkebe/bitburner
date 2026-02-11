@@ -96,11 +96,11 @@ export async function main(ns) {
         */
         await ns.singularity.connect(backdoorServers[k])
         if(debugLog) {
-          ns.tprint("backdoor status: ", ns.getServer(backdoorServers[k]).backdoorinstalled)
-          ns.tprint("not backdoored, not home? ", (!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home"))
+          ns.tprint("backdoor status: ", ns.getServer(backdoorServers[k]).backdoorInstalled)
+          ns.tprint("not backdoored, not home? ", (!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home"))
             ns.tprint("rooted? ", ns.getServer(backdoorServers[k]).hasAdminRights)
         }
-        if(!ns.getServer(backdoorServers[k]).backdoorinstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasAdminRights) {
+        if(!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasAdminRights) {
         await ns.singularity.installBackdoor(backdoorServers[k])
           // reconnects to the backdoored server in case the player moved to another server 
          await ns.singularity.connect(backdoorServers[k])
