@@ -84,8 +84,14 @@ export async function main(ns) {
       ns.exec("deploy.js", host, 1, list[i]);
       await ns.sleep(50);
       ns.run("findserver.js", 1, t, "silent")
-      let backdoorServers = ns.readPort(90)
+      let backdoorServers = ["home"]
+      let portData = ns.readPort(90)
+      ns.print("port data", portData)
+      if(portData != undefined) {
+        backdoorServers = portData
+      }
       if(debugLog) {
+        ns.tprint("port data ", portData)
         ns.tprint("backdoor list ",backdoorServers) 
       }
       for(let k = backdoorServers.length - 1; k >= 0; k--) {
@@ -111,6 +117,7 @@ export async function main(ns) {
       
     }
   }
+  await ns.singularity.connect("home")
   ns.tprint("already hacked servers ", numOldHacked)
   ns.tprint("new hacked servers ", numNewHacked)
   ns.tprint("too many ports ", numMinPorts, " min ports ", minPorts)
