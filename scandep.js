@@ -87,7 +87,7 @@ export async function main(ns) {
       let backdoorServers = ["home"]
       let portData = ns.readPort(90)
       ns.print("port data", portData)
-      if(portData != undefined) {
+      if(portData != "NULL PORT DATA") {
         backdoorServers = portData
       }
       if(debugLog) {
