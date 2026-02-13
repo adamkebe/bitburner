@@ -125,8 +125,10 @@ export async function main(ns) {
   ns.tprint("hacking level too high ", numMinHack, " min hacking level ", minHack)
   
   // backdoor function start
+  let portData = "empty"
+  while(portData != "NULL PORT DATA") {
       let backdoorServers = ["home"]
-      let portData = ns.readPort(90)
+      portData = ns.readPort(90)
       ns.print("port data", portData)
       if(portData != "NULL PORT DATA") {
         backdoorServers = portData
@@ -153,9 +155,10 @@ export async function main(ns) {
         
 
       }
+  }
       // backdoor function end
   
   await ns.singularity.connect("home")
-  await ns.sleep(30000);
+  //await ns.sleep(30000);
   ns.scriptKill("d-all.js", "home");
 }
