@@ -83,9 +83,8 @@ export async function main(ns) {
       //ns.scp("deploy.js",host,"home");
       ns.exec("deploy.js", host, 1, list[i]);
       await ns.sleep(50);
-      /*
-      // backdoor function start
       ns.run("findserver.js", 1, t, "silent")
+      /*
       let backdoorServers = ["home"]
       let portData = ns.readPort(90)
       ns.print("port data", portData)
@@ -127,7 +126,6 @@ export async function main(ns) {
   ns.tprint("hacking level too high ", numMinHack, " min hacking level ", minHack)
   
   // backdoor function start
-      ns.run("findserver.js", 1, t, "silent")
       let backdoorServers = ["home"]
       let portData = ns.readPort(90)
       ns.print("port data", portData)
