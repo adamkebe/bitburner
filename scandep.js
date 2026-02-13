@@ -83,6 +83,8 @@ export async function main(ns) {
       //ns.scp("deploy.js",host,"home");
       ns.exec("deploy.js", host, 1, list[i]);
       await ns.sleep(50);
+      /*
+      // backdoor function start
       ns.run("findserver.js", 1, t, "silent")
       let backdoorServers = ["home"]
       let portData = ns.readPort(90)
@@ -95,11 +97,11 @@ export async function main(ns) {
         ns.tprint("backdoor list ",backdoorServers) 
       }
       for(let k = backdoorServers.length - 1; k >= 0; k--) {
-        /*
+        
         if(debugLog) {
           ns.tprint(backdoorServers[k])
         }
-        */
+        
         await ns.singularity.connect(backdoorServers[k])
         if(debugLog) {
           ns.tprint("backdoor status: ", ns.getServer(backdoorServers[k]).backdoorInstalled)
@@ -114,7 +116,8 @@ export async function main(ns) {
         
 
       }
-      
+      // backdoor function end
+      */
     }
   }
   await ns.singularity.connect("home")
@@ -122,6 +125,41 @@ export async function main(ns) {
   ns.tprint("new hacked servers ", numNewHacked)
   ns.tprint("too many ports ", numMinPorts, " min ports ", minPorts)
   ns.tprint("hacking level too high ", numMinHack, " min hacking level ", minHack)
+  /*
+  // backdoor function start
+      ns.run("findserver.js", 1, t, "silent")
+      let backdoorServers = ["home"]
+      let portData = ns.readPort(90)
+      ns.print("port data", portData)
+      if(portData != "NULL PORT DATA") {
+        backdoorServers = portData
+      }
+      if(debugLog) {
+        ns.tprint("port data ", portData)
+        ns.tprint("backdoor list ",backdoorServers) 
+      }
+      for(let k = backdoorServers.length - 1; k >= 0; k--) {
+        if(debugLog) {
+          ns.tprint(backdoorServers[k])
+        }
+        await ns.singularity.connect(backdoorServers[k])
+        if(debugLog) {
+          ns.tprint("backdoor status: ", ns.getServer(backdoorServers[k]).backdoorInstalled)
+          ns.tprint("not backdoored, not home? ", (!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home"))
+            ns.tprint("rooted? ", ns.getServer(backdoorServers[k]).hasAdminRights)
+        }
+        if(!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasAdminRights) {
+        await ns.singularity.installBackdoor(backdoorServers[k])
+          // reconnects to the backdoored server in case the player moved to another server 
+         await ns.singularity.connect(backdoorServers[k])
+        }
+        
+
+      }
+      // backdoor function end
+
+  */
+  
   await ns.sleep(30000);
   ns.scriptKill("d-all.js", "home");
 }
