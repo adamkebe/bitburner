@@ -119,7 +119,6 @@ export async function main(ns) {
       */
     }
   }
-  await ns.singularity.connect("home")
   ns.tprint("already hacked servers ", numOldHacked)
   ns.tprint("new hacked servers ", numNewHacked)
   ns.tprint("too many ports ", numMinPorts, " min ports ", minPorts)
@@ -156,6 +155,7 @@ export async function main(ns) {
       }
       // backdoor function end
   
+  await ns.singularity.connect("home")
   await ns.sleep(30000);
   ns.scriptKill("d-all.js", "home");
 }
