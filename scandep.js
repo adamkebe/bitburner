@@ -125,7 +125,7 @@ export async function main(ns) {
   ns.tprint("new hacked servers ", numNewHacked)
   ns.tprint("too many ports ", numMinPorts, " min ports ", minPorts)
   ns.tprint("hacking level too high ", numMinHack, " min hacking level ", minHack)
-  /*
+  
   // backdoor function start
       ns.run("findserver.js", 1, t, "silent")
       let backdoorServers = ["home"]
@@ -157,8 +157,6 @@ export async function main(ns) {
 
       }
       // backdoor function end
-
-  */
   
   await ns.sleep(30000);
   ns.scriptKill("d-all.js", "home");
