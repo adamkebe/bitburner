@@ -2,7 +2,17 @@
 export async function main(ns) {
 // Start - for Singularity bitnode
 
-// get hack leel up to 50
+// buy Tor
+  while(true) {
+ns.singularity.purchaseTor()
+    let programs = ns.singularity.getDarkwebPrograms()
+    for( let i = 0; i<(programs.length -1) ; i++) {
+ns.singularity.purchaseProgram(programs[i])
+      await ns.sleep(10000)
+    }
+  }
+
+// get hack level up to 50
   ns.singularity.universityCourse("Rothman University","Data Structures")
   while(ns.getHackingLevel() < 50) {
     await ns.sleep(10000)
