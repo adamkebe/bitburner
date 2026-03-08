@@ -141,7 +141,7 @@ export async function main(ns) {
         if(debugLog) {
           ns.tprint(backdoorServers[k])
         }
-        await ns.singularity.connect(backdoorServers[k])
+        //await ns.singularity.connect(backdoorServers[k])
         if(debugLog) {
           ns.tprint("backdoor status: ", ns.getServer(backdoorServers[k]).backdoorInstalled)
           ns.tprint("not backdoored, not home? ", (!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home"))
@@ -150,7 +150,7 @@ export async function main(ns) {
         if(!ns.getServer(backdoorServers[k]).backdoorInstalled && backdoorServers[k] != "home" && ns.getServer(backdoorServers[k]).hasAdminRights) {
         await ns.singularity.installBackdoor(backdoorServers[k])
           // reconnects to the backdoored server in case the player moved to another server 
-         await ns.singularity.connect(backdoorServers[k])
+        // await ns.singularity.connect(backdoorServers[k])
         }
         
 
@@ -158,7 +158,7 @@ export async function main(ns) {
   }
       // backdoor function end
   
-  await ns.singularity.connect("home")
+ // await ns.singularity.connect("home")
   //await ns.sleep(30000);
   ns.scriptKill("d-all.js", "home");
 }
