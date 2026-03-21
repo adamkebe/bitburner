@@ -13,5 +13,5 @@ await ns.rm("scandep.js")
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/singularity/singularity-manager.js","singularity-manager.js")
   //await ns.wget()
   await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/management/init.js", "run.js")
-  
+  await ns.wget("https://raw.githubusercontent.com/adamkebe/bitburner/refs/heads/main/gang/gang.js", "gang.js")
 }
