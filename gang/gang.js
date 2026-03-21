@@ -17,5 +17,5 @@ for (let i = 0; i < members.length; i++) {
       if (true) {
         ns.gang.ascendMember(members[i])
       }
-  
+}
 }
