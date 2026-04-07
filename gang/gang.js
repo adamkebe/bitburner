@@ -35,6 +35,7 @@ for (let i = 0; i < members.length; i++) {
   let agility = ratios.agi
   let charisma = ratios.cha
   let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
+  ns.print(ascensionRatios)
   ns.print(Math.max(ascensionRatios))
       if (Math.max(ascensionRatios)>1.05) {
         ns.gang.ascendMember(members[i])
