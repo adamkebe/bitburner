@@ -4,11 +4,11 @@ export async function main(ns) {
   while(n<1) {
   // gets all members
   let members = ns.gang.getMemberNames()
-    /*
+    
   // recruits new members
 let recruits = ns.gang.getRecruitsAvailable()
   if (recruits>0) {
-for (let i = 0; i < recruits - 1; i++) {
+for (let i = 0; i < recruits; i++) {
        members
   if(members.length>0) {
     let name = members[members.length-1]+1;
@@ -29,7 +29,6 @@ for (let i = 0; i < members.length; i++) {
       }
 }
     ns.gang.nextUpdate()
-    */
     n += 1 ; ns.print("n ", n)
   } //end of while loop
 }
