@@ -22,16 +22,16 @@ ns.gang.setMemberTask(name, "Train Combat")
   }
 }
   }
-    /*
   //ascends all members if they meet a certain condition 
 for (let i = 0; i < members.length; i++) {
-      if (math.max(ns.gang.getAscensionResult(members[i]))>1.05) {
+  ns.print(members[i])
+  ns.print(ns.gang.getAscensionResult(members[i]))
+  ns.print(Math.max(ns.gang.getAscensionResult(members[i])))
+      if (Math.max(ns.gang.getAscensionResult(members[i]))>1.05) {
         ns.gang.ascendMember(members[i])
       }
 }
     ns.gang.nextUpdate()
-    */
     n += 1 ; ns.print("n ", n)
-    
   } //end of while loop
 }
