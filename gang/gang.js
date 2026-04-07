@@ -30,7 +30,8 @@ for (let i = 0; i < members.length; i++) {
       }
 }
     ns.gang.nextUpdate()
-    n += 1 ; ns.print("n ", n)
     */
+    n += 1 ; ns.print("n ", n)
+    
   } //end of while loop
 }
