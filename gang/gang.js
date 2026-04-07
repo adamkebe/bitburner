@@ -29,19 +29,18 @@ for (let i = 0; i < members.length; i++) {
   ns.print("ratios", ratios)
   
   let hack = ratios.hack
-  /*
-  let strength = ns.gang.getAscensionResult(members[i]).str
-  let defence = ns.gang.getAscensionResult(members[i]).def
-  let dexterity = ns.gang.getAscensionResult(members[i]).dex
-  let agility = ns.gang.getAscensionResult(members[i]).agi
-  let charisma = ns.gang.getAscensionResult(members[i]).cha
+  let strength = ratios.str
+  let defence = ratios.def
+  let dexterity = ratios.dex
+  let agility = ratios.agi
+  let charisma = ratios.cha
   let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
-  ns.print(Math.max(ascensionRatios)
+  ns.print(Math.max(ascensionRatios))
       if (Math.max(ascensionRatios)>1.05) {
         ns.gang.ascendMember(members[i])
-      } */
+      }
 }
-    ns.gang.nextUpdate()
+    //ns.gang.nextUpdate()
     n += 1 ; ns.print("n ", n)
   } //end of while loop
 }
