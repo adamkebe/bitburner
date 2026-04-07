@@ -1,7 +1,7 @@
 /** @param {NS} ns */
 export async function main(ns) {
-
-  while(true) {
+  let n = 0
+  while(n<1) {
   // gets all members
   let members = ns.gang.getMemberNames()
     /*
@@ -30,5 +30,6 @@ for (let i = 0; i < members.length; i++) {
 }
     ns.gang.nextUpdate()
     */
+    n += 1 ; ns.print("n ", n)
   } //end of while loop
 }
