@@ -26,10 +26,10 @@ ns.gang.setMemberTask(name, "Train Combat")
 for (let i = 0; i < members.length; i++) {
   ns.print(members[i])
   let ratios = ns.gang.getAscensionResult(members[i])
-  ns.print(ratios)
-  ns.print(ns.gang.getAscensionResult(members[i]))
+  ns.print("ratios", ratios)
+  
+  let hack = ratios.hack
   /*
-  let hack = ns.gang.getAscensionResult(members[i]).hack
   let strength = ns.gang.getAscensionResult(members[i]).str
   let defence = ns.gang.getAscensionResult(members[i]).def
   let dexterity = ns.gang.getAscensionResult(members[i]).dex
