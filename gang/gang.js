@@ -13,13 +13,13 @@ for (let i = 0; i < recruits; i++) {
   if(members.length>0) {
     let name = members[members.length-1]+1;
   ns.gang.recruitMember(name)
+    ns.gang.setMemberTask(name, "Train Combat")
   }
   else {
     let name = "1"
 ns.gang.recruitMember(name)
-  }
 ns.gang.setMemberTask(name, "Train Combat")
-  
+  }
 }
   }
   //ascends all members if they meet a certain condition 
