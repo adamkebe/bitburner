@@ -26,8 +26,6 @@ ns.gang.setMemberTask(name, "Train Combat")
 for (let i = 0; i < members.length; i++) {
   ns.print(members[i])
   let ratios = ns.gang.getAscensionResult(members[i])
-  ns.print("ratios", ratios)
-  
   let hack = ratios.hack
   let strength = ratios.str
   let defence = ratios.def
@@ -36,12 +34,12 @@ for (let i = 0; i < members.length; i++) {
   let charisma = ratios.cha
   let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
   ns.print(ascensionRatios)
-  ns.print(Math.max(ascensionRatios))
-      if (Math.max(ascensionRatios)>1.05) {
+  ns.print(Math.max(...ascensionRatios))
+      if (Math.max(...ascensionRatios)>1.05) {
         ns.gang.ascendMember(members[i])
       }
 }
-    //ns.gang.nextUpdate()
+    ns.gang.nextUpdate()
     n += 1 ; ns.print("n ", n)
   } //end of while loop
 }
