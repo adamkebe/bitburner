@@ -25,7 +25,10 @@ ns.gang.setMemberTask(name, "Train Combat")
   //ascends all members if they meet a certain condition 
 for (let i = 0; i < members.length; i++) {
   ns.print(members[i])
+  let ratios = ns.gang.getAscensionResult(members[i])
+  ns.print(ratios)
   ns.print(ns.gang.getAscensionResult(members[i]))
+  /*
   let hack = ns.gang.getAscensionResult(members[i]).hack
   let strength = ns.gang.getAscensionResult(members[i]).str
   let defence = ns.gang.getAscensionResult(members[i]).def
@@ -36,7 +39,7 @@ for (let i = 0; i < members.length; i++) {
   ns.print(Math.max(ascensionRatios)
       if (Math.max(ascensionRatios)>1.05) {
         ns.gang.ascendMember(members[i])
-      }
+      } */
 }
     ns.gang.nextUpdate()
     n += 1 ; ns.print("n ", n)
