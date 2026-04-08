@@ -3,8 +3,16 @@ export async function main(ns) {
   // set faction
   let faction = "Slum Snakes"
   // initial loop waits for augmentation to be available 
+ /*
+ All augs ns.singularity.getAugmentationsFromFaction()
+ owned augs
+ available augs
+
+
+
+ */
   while("no augment") {
-    // check for augmentation 
+  // check for augmentation 
     ns.await(500)
   }
   while("augment available") {
