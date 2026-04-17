@@ -6,11 +6,15 @@ export async function main(ns) {
   // initial loop waits for augmentation to be available 
  // All augs
  let allAugs = ns.singularity.getAugmentationsFromFaction(faction)
- if(debug) {
- ns.print(allAugs) 
+ // owned augs, including those purchased but not yet installed
+  let ownedAugs = ns.singularity.getOwnedAugmentations(true)
+  if(debug) {
+ ns.print("All ", faction, " augs: ", allAugs)
+ ns.print("All ", faction, " augs: ", ownedAugs)
  }
+  
  /*
- owned augs
+ 
  available augs
 
 
