@@ -10,13 +10,15 @@ export async function main(ns) {
   let ownedAugs = ns.singularity.getOwnedAugmentations(true)
   if(debug) {
  ns.print("All ", faction, " augs: ", allAugs)
- ns.print("All ", faction, " augs: ", ownedAugs)
+ ns.print("Owned augs: ", ownedAugs)
  }
+
+  //available augs
+  // let availableAugs = allAugs - ownedAugs
   
  /*
  
- available augs
-
+ 
 
 
  
