@@ -1,8 +1,10 @@
 /** @param {NS} ns */
 export async function main(ns) {
+  // initialise
+  let availableAugs = []
+  let debug = true
   // set faction
   let faction = "Slum Snakes"
-  let debug = true
   // initial loop waits for augmentation to be available 
  // All augs
  let allAugs = ns.singularity.getAugmentationsFromFaction(faction)
@@ -13,8 +15,7 @@ export async function main(ns) {
  ns.print("Owned augs: ", ownedAugs)
  }
 
-  //available augs
-  let availableAugs = []
+  //available augs 
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.indexOf(allAugs[i]) < 0) {
 availableAugs.push(allAugs[i])
