@@ -14,8 +14,12 @@ export async function main(ns) {
  }
 
   //available augs
-  // let availableAugs = allAugs - ownedAugs
-  
+  let availableAugs = []
+ for(let i = 0; i < allAugs.length; i++) {
+   if(ownedAugs.inedexOf(allAugs[i]) >= 0) {
+splice(allAugs[i])
+   }
+ }
  /*
  
  
