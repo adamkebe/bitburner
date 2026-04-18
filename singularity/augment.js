@@ -20,6 +20,9 @@ export async function main(ns) {
 splice(allAugs[i])
    }
  }
+  if(debug) {
+ ns.print("Available augs: ", availableAugs)
+  }
  /*
  
  
