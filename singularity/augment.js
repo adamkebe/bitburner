@@ -17,7 +17,11 @@ export async function main(ns) {
   let availableAugs = []
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.inedexOf(allAugs[i]) >= 0) {
-splice(allAugs[i])
+availableAugs.push(allAugs[i])
+    if(debug) {
+ ns.print(allAugs[i])
+ ns.print("Available augs: ", availableAugs)
+    } 
    }
  }
   if(debug) {
