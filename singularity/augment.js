@@ -2,6 +2,19 @@
 export async function main(ns) {
   // initialise
   let availableAugs = []
+  let money = 0
+  const aug = {
+    name = null
+    cost = null
+    rep = null
+    faction = null
+}
+  const maxAug = {
+    name = null
+    cost = null
+    rep = null
+    faction = null
+  }
   let debug = true
   // set faction
   let faction = "Slum Snakes"
@@ -24,6 +37,20 @@ availableAugs.push(allAugs[i])
  ns.print("Available augs: ", availableAugs)
     } 
    }
+   // update aug object
+   aug.name = allAugs[i]
+   aug.cost = ns.singularity.getAugmentationPrice(allAugs[i])
+   aug.rep  = ns.singularity.getAugmentationRepReq(allAugs[i])
+   aug.faction = faction
+   // check if aug is max aug
+   money = ns.getServerMoneyAvailable("home")
+   reputation = ns.singularity.getFactionRep(faction)
+   if(aug.cost <= money && aug.rep >= reputation && aug.cost>maxAug.cost) {
+   maxAug = aug
+   }
+  if(debug) {
+ ns.print("Aug object: ", aug)
+ ns.print("MaxAug object: ", maxAug)
  }
   if(debug) {
  ns.print("THE END ", "Available augs: ", availableAugs)
