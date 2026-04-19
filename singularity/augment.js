@@ -124,7 +124,5 @@ function buyMaxAug() {
 //ns.run("install.js",1,"augment")
 */
 ns.exit()
-}
-}
 } //last bracket of function
 
