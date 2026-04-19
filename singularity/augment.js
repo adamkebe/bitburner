@@ -3,6 +3,7 @@ export async function main(ns) {
   // initialise
   let availableAugs = []
   let money = 0
+  let reputation = 0
   const aug = {
     name: null,
     cost: null,
