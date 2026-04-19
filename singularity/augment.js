@@ -52,21 +52,9 @@ availableAugs.push(allAugs[i])
  }
   } //end function
 
-  /* Function template
-  function getAllFactionAugs(faction) {
-  
-  } //end function
-*/
-  
-  // START EXECUTION
-  // set faction
-  faction = "Slum Snakes"
-  // initial loop waits for augmentation to be available 
-  getAllFactionAugs(faction)
-  getAvailableFactionAugs() 
-
+function getMaxAug(faction) {
    for(let i = 0; i < availableAugs.length; i++) {
-   // update aug object
+  // update aug object
    aug.name = availableAugs[i]
    aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
    aug.rep  = ns.singularity.getAugmentationRepReq(availableAugs[i])
@@ -78,13 +66,41 @@ availableAugs.push(allAugs[i])
    maxAug.name = aug.name 
    maxAug.cost = aug.cost
    maxAug.rep = aug.rep
-   maxAug.faction = aug.faction 
+   maxAug.faction = aug.faction
    
   if(debug || test) {
  ns.print("Aug object: ", aug)
  ns.print("MaxAug object: ", maxAug)
  }
    }
+     //clears available augs for next faction
+     availableAugs = []
+  } //end function
+
+function buyMaxAug() {
+  ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
+  } //end function
+  
+  /* Function template
+  function myFunction() {
+  
+  } //end function
+*/
+  
+  // START EXECUTION
+  // set faction
+  faction = "Slum Snakes"
+  // initialloop waits for augmentation to be available 
+  getAllFactionAugs(faction)
+  getAvailableFactionAugs()
+  getMaxAug(faction)
+
+  
+  //Buy the max aug after all factions have been scanned
+  buyMaxAug()
+
+   
+   
   if(debug) {
  ns.print("THE END ", "Available augs: ", availableAugs)
   }
