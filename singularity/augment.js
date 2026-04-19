@@ -44,9 +44,9 @@ availableAugs.push(allAugs[i])
  }
    for(let i = 0; i < availableAugs.length; i++) {
    // update aug object
-   aug.name = allAugs[i]
-   aug.cost = ns.singularity.getAugmentationPrice(allAugs[i])
-   aug.rep  = ns.singularity.getAugmentationRepReq(allAugs[i])
+   aug.name = availableAugs[i]
+   aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
+   aug.rep  = ns.singularity.getAugmentationRepReq(availableAugs[i])
    aug.faction = faction
    // check if aug is max aug
    money = ns.getServerMoneyAvailable("home")
