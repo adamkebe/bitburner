@@ -36,7 +36,7 @@ export async function main(ns) {
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.indexOf(allAugs[i]) < 0) {
 availableAugs.push(allAugs[i])
-    if(debug) {
+    if(debug || test) {
  ns.print(allAugs[i])
  ns.print("Available augs: ", availableAugs)
     } 
