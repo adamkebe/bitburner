@@ -73,6 +73,7 @@ function getMaxAug(faction) {
  ns.print("MaxAug object: ", maxAug)
  }
    }
+   }
      //clears available augs for next faction
      availableAugs = []
   } //end function
