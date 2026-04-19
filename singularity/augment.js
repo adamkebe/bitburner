@@ -79,3 +79,5 @@ availableAugs.push(allAugs[i])
 */
 ns.exit()
 }
+  //last bracket of function
+}
