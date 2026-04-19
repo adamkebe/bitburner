@@ -37,24 +37,14 @@ export async function main(ns) {
  ns.print("All ", faction, " augs: ", allAugs)
  ns.print("Owned augs: ", ownedAugs)
   }
-    //end function
-  }
-  
+  } //end function
+
+  // START EXECUTION
   // set faction
   faction = "Slum Snakes"
   // initial loop waits for augmentation to be available 
   getAllFactionAugs(faction)
-  /*
-  // All augs
   
- let allAugs = ns.singularity.getAugmentationsFromFaction(faction)
- // owned augs, including those purchased but not yet installed
-  let ownedAugs = ns.singularity.getOwnedAugmentations(true)
-  if(debug) {
- ns.print("All ", faction, " augs: ", allAugs)
- ns.print("Owned augs: ", ownedAugs)
- }
-*/
   //available augs 
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.indexOf(allAugs[i]) < 0) {
