@@ -14,7 +14,14 @@ export async function main(ns) {
     name: null,
     cost: null,
     rep: null,
-    faction: null
+    faction: null,
+    reset: function() {
+      this.name = null
+      this.cost = null
+      this.rep = null
+      this.faction = null
+      ns.print("aug reset: ", aug)
+    }
 }
   const maxAug = {
     name: null,
@@ -90,11 +97,12 @@ function buyMaxAug() {
   
   // START EXECUTION
   // set faction
-  faction = "Slum Snakes"
+  faction = "Sector-12"
   // initialloop waits for augmentation to be available 
   getAllFactionAugs(faction)
   getAvailableFactionAugs()
   getMaxAug(faction)
+  aug.reset()
 
   
   //Buy the max aug after all factions have been scanned
