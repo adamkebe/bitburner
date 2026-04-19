@@ -1,9 +1,15 @@
 /** @param {NS} ns */
 export async function main(ns) {
   // initialise
+  //arrays
+  let allAugs = []
   let availableAugs = []
+  let ownedAugs = []
+  //vars
+  let faction = null
   let money = 0
   let reputation = 0
+  
   const aug = {
     name: null,
     cost: null,
@@ -20,8 +26,22 @@ export async function main(ns) {
 //options
   let debug = false
   let test = true
+
+// FUNCTIONS
+  function getAllFactionAugs(faction) {
+    // All augs
+ allAugs = ns.singularity.getAugmentationsFromFaction(faction)
+ // owned augs, including those purchased but not yet installed
+  ownedAugs = ns.singularity.getOwnedAugmentations(true)
+  if(debug) {
+ ns.print("All ", faction, " augs: ", allAugs)
+ ns.print("Owned augs: ", ownedAugs)
+  }
+    //end function
+  }
+  
   // set faction
-  let faction = "Slum Snakes"
+  faction = "Slum Snakes"
   // initial loop waits for augmentation to be available 
  // All augs
  let allAugs = ns.singularity.getAugmentationsFromFaction(faction)
