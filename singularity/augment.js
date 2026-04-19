@@ -102,7 +102,7 @@ function buyMaxAug() {
   getAllFactionAugs(faction)
   getAvailableFactionAugs()
   getMaxAug(faction)
-  aug.reset()
+  //aug.reset()
 
   
   //Buy the max aug after all factions have been scanned
