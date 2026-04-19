@@ -16,7 +16,10 @@ export async function main(ns) {
     rep: null,
     faction: null
   }
-  let debug = true
+
+//options
+  let debug = false
+  let test = true
   // set faction
   let faction = "Slum Snakes"
   // initial loop waits for augmentation to be available 
@@ -38,6 +41,8 @@ availableAugs.push(allAugs[i])
  ns.print("Available augs: ", availableAugs)
     } 
    }
+ }
+   for(let i = 0; i < availableAugs.length; i++) {
    // update aug object
    aug.name = allAugs[i]
    aug.cost = ns.singularity.getAugmentationPrice(allAugs[i])
@@ -51,11 +56,12 @@ availableAugs.push(allAugs[i])
    maxAug.cost = aug.cost
    maxAug.rep = aug.rep
    maxAug.faction = aug.faction 
-   }
-  if(debug) {
+   
+  if(debug || test) {
  ns.print("Aug object: ", aug)
  ns.print("MaxAug object: ", maxAug)
  }
+   }
   if(debug) {
  ns.print("THE END ", "Available augs: ", availableAugs)
   }
