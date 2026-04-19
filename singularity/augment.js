@@ -49,7 +49,7 @@ export async function main(ns) {
   function getAvailableFactionAugs() {
     //available augs 
  for(let i = 0; i < allAugs.length; i++) {
-   if(ownedAugs.indexOf(allAugs[i]) < 0) {
+   if(ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
     if(debug || test) {
  ns.print(allAugs[i])
