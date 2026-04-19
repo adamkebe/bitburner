@@ -125,5 +125,6 @@ function buyMaxAug() {
 */
 ns.exit()
 }
-  //last bracket of function
 }
+} //last bracket of function
+
