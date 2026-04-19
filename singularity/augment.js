@@ -4,15 +4,15 @@ export async function main(ns) {
   let availableAugs = []
   let money = 0
   const aug = {
-    name: null
-    cost: null
-    rep: null
+    name: null,
+    cost: null,
+    rep: null,
     faction: null
 }
   const maxAug = {
-    name: null
-    cost: null
-    rep: null
+    name: null,
+    cost: null,
+    rep: null,
     faction: null
   }
   let debug = true
