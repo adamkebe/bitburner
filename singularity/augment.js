@@ -39,13 +39,8 @@ export async function main(ns) {
   }
   } //end function
 
-  // START EXECUTION
-  // set faction
-  faction = "Slum Snakes"
-  // initial loop waits for augmentation to be available 
-  getAllFactionAugs(faction)
-  
-  //available augs 
+  function getAvailableFactionAugs() {
+    //available augs 
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.indexOf(allAugs[i]) < 0) {
 availableAugs.push(allAugs[i])
@@ -55,6 +50,21 @@ availableAugs.push(allAugs[i])
     } 
    }
  }
+  } //end function
+
+  /* Function template
+  function getAllFactionAugs(faction) {
+  
+  } //end function
+*/
+  
+  // START EXECUTION
+  // set faction
+  faction = "Slum Snakes"
+  // initial loop waits for augmentation to be available 
+  getAllFactionAugs(faction)
+  getAvailableFactionAugs() 
+
    for(let i = 0; i < availableAugs.length; i++) {
    // update aug object
    aug.name = availableAugs[i]
