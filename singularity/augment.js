@@ -31,8 +31,8 @@ export async function main(ns) {
   }
 
 //options
-  let debug = false
-  let test = true
+  let debug = true
+  let test = false
 
 // FUNCTIONS
   function getAllFactionAugs(faction) {
@@ -99,9 +99,9 @@ function buyMaxAug() {
   // set faction
   faction = "Sector-12"
   // initialloop waits for augmentation to be available 
-  getAllFactionAugs(faction)
-  getAvailableFactionAugs()
-  getMaxAug(faction)
+  getAllFactionAugs(faction);
+  getAvailableFactionAugs();
+  getMaxAug(faction);
   //aug.reset()
 
   
