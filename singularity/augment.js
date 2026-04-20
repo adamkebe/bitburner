@@ -31,12 +31,13 @@ export async function main(ns) {
   }
 
 //options
-  let debug = true
-  let test = false
+  let debug = false
+  let test = true
 
 // FUNCTIONS
   function getAllFactionAugs(faction) {
     // All augs
+    ns.print("checking all augs")
  allAugs = ns.singularity.getAugmentationsFromFaction(faction)
  // owned augs, including those purchased but not yet installed
   ownedAugs = ns.singularity.getOwnedAugmentations(true)
@@ -50,9 +51,12 @@ export async function main(ns) {
     //available augs 
     ns.print("checking available augs")
  for(let i = 0; i < allAugs.length; i++) {
+   if(allAugs[i] == "Neuroflux Governor") {
+ns.print("current aug: ", allAugs[i])
+   }
    if(ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
-    if(debug || test) {
+    if(test) {
  ns.print(allAugs[i])
  ns.print("Available augs: ", availableAugs)
     } 
@@ -77,7 +81,7 @@ function getMaxAug(faction) {
    maxAug.rep = aug.rep
    maxAug.faction = aug.faction
    
-  if(debug || test) {
+  if(test) {
  ns.print("Aug object: ", aug)
  ns.print("MaxAug object: ", maxAug)
  }
