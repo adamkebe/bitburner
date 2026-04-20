@@ -48,6 +48,7 @@ export async function main(ns) {
 
   function getAvailableFactionAugs() {
     //available augs 
+    ns.print("checking available augs")
  for(let i = 0; i < allAugs.length; i++) {
    if(ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
@@ -60,7 +61,8 @@ availableAugs.push(allAugs[i])
   } //end function
 
 function getMaxAug(faction) {
-   for(let i = 0; i < availableAugs.length; i++) {
+  ns.print("checking max aug")
+  for(let i = 0; i < availableAugs.length; i++) {
   // update aug object
    aug.name = availableAugs[i]
    aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
