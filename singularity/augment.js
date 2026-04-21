@@ -92,6 +92,7 @@ function getMaxAug(faction) {
   } //end function
 
 function buyMaxAug() {
+  ns.print("Max aug undefined? ", maxAug.name==undefined)
   if(!maxAug.name==undefined) {
     ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
   }
