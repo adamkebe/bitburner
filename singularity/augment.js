@@ -96,7 +96,7 @@ function buyMaxAug() {
     ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
   }
   else {
-  ns.print("no purchasable augs"
+  ns.print("no purchasable augs")
   }
   } //end function
   
