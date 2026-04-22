@@ -126,7 +126,8 @@ function buyMaxAug() {
   
   //Buy the max aug after all factions have been scanned
   buyMaxAug()
-    await ns.asleep(100)
+    await ns.asleep(200)
+    await ns.sleep(200)
   }
 
    
