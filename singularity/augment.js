@@ -95,6 +95,7 @@ function buyMaxAug() {
   ns.print("Max aug undefined? ", maxAug.name==undefined)
   if(maxAug.name!=undefined) {
     ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
+    //aug.reset()
   }
   else {
   ns.print("no purchasable augs")
@@ -109,16 +110,23 @@ function buyMaxAug() {
   
   // START EXECUTION
   // set faction
-  faction = "Sector-12"
+  faction = "Slum Snakes"
   // initialloop waits for augmentation to be available 
+  while(maxAug.name==undefined) {
   getAllFactionAugs(faction);
   getAvailableFactionAugs();
   getMaxAug(faction);
-  //aug.reset()
-
+  await ns.asleep(1000)
+  }
+  //purchasing loop while augs are available
+  while(maxAug.name!=undefined) {
+  getAllFactionAugs(faction);
+  getAvailableFactionAugs();
+  getMaxAug(faction);
   
   //Buy the max aug after all factions have been scanned
   buyMaxAug()
+  }
 
    
    
