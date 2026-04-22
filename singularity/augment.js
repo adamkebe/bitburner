@@ -15,7 +15,6 @@ export async function main(ns) {
     cost: null,
     rep: null,
     faction: null,
-    prereq: ownedAugs.includes(ns.singularity.getAugmentationPrereq(this.name)),
     reset: function() {
       this.name = null
       this.cost = null
@@ -73,6 +72,7 @@ function getMaxAug(faction) {
    aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
    aug.rep  = ns.singularity.getAugmentationRepReq(availableAugs[i])
    aug.faction = faction
+   aug.prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(this.name))
    // check if aug is max aug
    money = ns.getServerMoneyAvailable("home")
    reputation = ns.singularity.getFactionRep(faction)
