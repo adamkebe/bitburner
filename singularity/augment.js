@@ -159,11 +159,12 @@ function buyMaxAug() {
   while("augment available") {
     // buy most expensive augmentation 
 }
-  //install augmentations 
-  ns.singularity.exportGame()
-  
-//ns.run("install.js",1,"augment")
 */
+  //backup and install augmentations 
+  ns.singularity.exportGame()
+  ns.singularity.installAugmentations()
+
+
 ns.exit()
 } //last bracket of function
 
