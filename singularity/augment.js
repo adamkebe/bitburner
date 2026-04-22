@@ -56,7 +56,7 @@ export async function main(ns) {
 ns.print("current aug: ", allAugs[i])
    }
    prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(allAugs[i]))
-   ns.peint("prereqs owned? ", prereq)
+   ns.print("prereqs owned? ", prereq)
    if(prereq && ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
     if(test) {
