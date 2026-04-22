@@ -8,7 +8,8 @@ export async function main(ns) {
   //vars
   let faction = null
   let money = 0
-  let prereq = null
+  let prereq = []
+  let prereqOwned = null
   let reputation = 0
   
   const aug = {
@@ -55,14 +56,15 @@ export async function main(ns) {
    if(allAugs[i] == "Neuroflux Governor") {
 ns.print("current aug: ", allAugs[i])
    }
-  if(ns.singularity.getAugmentationPrereq(allAugs[i])==undefined) {
-    prereq = true
+   prereq = ns.singularity.getAugmentationPrereq(allAugs[i])
+  if(prereq == []) {
+    prereqOwned = true
   }
    else {
-    prereq = ownedAugs.indexOf(ns.singularity.getAugmentationPrereq(allAugs[i])) >= 0
+    prereqOwned = ownedAugs.indexOf(prereq) >= 0
    }
-   ns.print(allAugs[i], " prereqs owned? ", prereq)
-   if(prereq && ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
+   ns.print(allAugs[i], " prereq: ", prereq, " prereqs owned? ", prereqOwned)
+   if(prereqOwned && ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
     if(test) {
  ns.print(allAugs[i])
