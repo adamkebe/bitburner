@@ -57,7 +57,7 @@ export async function main(ns) {
 ns.print("current aug: ", allAugs[i])
    }
    prereq = ns.singularity.getAugmentationPrereq(allAugs[i])
-  if(prereq == []) {
+  if(prereq.length == 0) {
     prereqOwned = true
   }
    else {
