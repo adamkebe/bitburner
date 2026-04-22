@@ -55,11 +55,13 @@ export async function main(ns) {
    if(allAugs[i] == "Neuroflux Governor") {
 ns.print("current aug: ", allAugs[i])
    }
-   if(ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
+   prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(allAugs[i]))
+   ns.peint("prereqs owned? ", prereq)
+   if(prereq && ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
 availableAugs.push(allAugs[i])
     if(test) {
  ns.print(allAugs[i])
- ns.print("Available augs: ", availableAugs)
+ //ns.print("Available augs: ", availableAugs)
     } 
    }
  }
@@ -73,11 +75,11 @@ function getMaxAug(faction) {
    aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
    aug.rep  = ns.singularity.getAugmentationRepReq(availableAugs[i])
    aug.faction = faction
-   prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(aug.name))
+   //prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(aug.name))
    // check if aug is max aug
    money = ns.getServerMoneyAvailable("home")
    reputation = ns.singularity.getFactionRep(faction)
-   if(aug.cost <= money && aug.rep <= reputation && aug.cost>maxAug.cost && prereq) {
+   if(aug.cost <= money && aug.rep <= reputation && aug.cost>maxAug.cost) { // && prereq) {
    maxAug.name = aug.name 
    maxAug.cost = aug.cost
    maxAug.rep = aug.rep
