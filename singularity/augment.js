@@ -8,6 +8,7 @@ export async function main(ns) {
   //vars
   let faction = null
   let money = 0
+  let prereq = null
   let reputation = 0
   
   const aug = {
@@ -72,11 +73,11 @@ function getMaxAug(faction) {
    aug.cost = ns.singularity.getAugmentationPrice(availableAugs[i])
    aug.rep  = ns.singularity.getAugmentationRepReq(availableAugs[i])
    aug.faction = faction
-   aug.prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(aug.name))
+   prereq = ownedAugs.includes(ns.singularity.getAugmentationPrereq(aug.name))
    // check if aug is max aug
    money = ns.getServerMoneyAvailable("home")
    reputation = ns.singularity.getFactionRep(faction)
-   if(aug.cost <= money && aug.rep <= reputation && aug.cost>maxAug.cost && aug.prereq) {
+   if(aug.cost <= money && aug.rep <= reputation && aug.cost>maxAug.cost && prereq) {
    maxAug.name = aug.name 
    maxAug.cost = aug.cost
    maxAug.rep = aug.rep
