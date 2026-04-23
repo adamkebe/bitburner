@@ -61,7 +61,8 @@ ns.print("current aug: ", allAugs[i])
     prereqOwned = true
   }
    else {
-    prereqOwned = ownedAugs.indexOf(prereq) >= 0
+    ns.print(ownedAugs.indexOf(prereq))
+     prereqOwned = ownedAugs.indexOf(prereq) >= 0
    }
    ns.print(allAugs[i], " prereq: ", prereq, " prereqs owned? ", prereqOwned)
    if(prereqOwned && ownedAugs.indexOf(allAugs[i]) < 0 || allAugs[i] == "Neuroflux Governor") {
