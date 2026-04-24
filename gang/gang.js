@@ -1,6 +1,17 @@
 /** @param {NS} ns */
 export async function main(ns) {
+  //OPTIONS
+
+  //VARIABLES
+  let members = []
   let n = 0
+
+  //FUNCTIONS
+  function getMembers {
+  // gets all members
+  members = ns.gang.getMemberNames()
+  }
+  
   /*
   //STATES
   join gang(karma. faction, create gang) 
@@ -16,9 +27,7 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   */
   
   while(true) {
-  // gets all members
-  let members = ns.gang.getMemberNames()
-    
+  getMembers
   // recruits new members
 let recruits = ns.gang.getRecruitsAvailable()
   if (recruits>0) {
