@@ -1,6 +1,20 @@
 /** @param {NS} ns */
 export async function main(ns) {
   let n = 0
+  /*
+  //STATES
+  join gang(karma. faction, create gang) 
+  First members (get to 3 members) 
+  expand gang(aac multi > 6, terrorism, 9-10 members)
+  gain power (all train combat, asc mult > 9, territory warfare)
+  grain territory (min win chamce 40%, stsrt clashes)
+  production(min win chance 90%, set max members to terrorism, delay ascension)
+aug(buy augs)
+cash(switch to cash producton)
+no war(when territory is 100% switch away from territory warfare) 
+buy player augs(add this at some stage, ensure ascension is rapid)
+  */
+  
   while(true) {
   // gets all members
   let members = ns.gang.getMemberNames()
