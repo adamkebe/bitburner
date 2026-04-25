@@ -7,7 +7,7 @@ export async function main(ns) {
   let n = 0
 
   //FUNCTIONS
-  function getMembers {
+  function getMembers() {
   // gets all members
   members = ns.gang.getMemberNames()
   }
