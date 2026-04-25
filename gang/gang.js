@@ -10,25 +10,9 @@ export async function main(ns) {
   function getMembers() {
   // gets all members
   members = ns.gang.getMemberNames()
-  }
-  
-  /*
-  //STATES
-  join gang(karma. faction, create gang) 
-  First members (get to 3 members) 
-  expand gang(aac multi > 6, terrorism, 9-10 members)
-  gain power (all train combat, asc mult > 9, territory warfare)
-  grain territory (min win chamce 40%, stsrt clashes)
-  production(min win chance 90%, set max members to terrorism, delay ascension)
-aug(buy augs)
-cash(switch to cash producton)
-no war(when territory is 100% switch away from territory warfare) 
-buy player augs(add this at some stage, ensure ascension is rapid)
-  */
-  
-  while(true) {
-  getMembers
-  // recruits new members
+  } // END FUNCTION
+  function recruitMembers() {
+    // recruits new members
 let recruits = ns.gang.getRecruitsAvailable()
   if (recruits>0) {
 for (let i = 0; i < recruits; i++) {
@@ -45,6 +29,26 @@ ns.gang.setMemberTask(name, "Train Combat")
   }
 }
   }
+  }// END FUNCTION
+  
+  /*
+  //STATES
+  join gang(karma. faction, create gang) 
+  First members (get to 3 members) 
+  expand gang(aac multi > 6, terrorism, 9-10 members)
+  gain power (all train combat, asc mult > 9, territory warfare)
+  grain territory (min win chamce 40%, stsrt clashes)
+  production(min win chance 90%, set max members to terrorism, delay ascension)
+aug(buy augs)
+cash(switch to cash producton)
+no war(when territory is 100% switch away from territory warfare) 
+buy player augs(add this at some stage, ensure ascension is rapid)
+  */
+  
+  while(true) {
+  getMembers()
+  recruitMembers()
+  
   //ascends all members if they meet a certain condition 
 for (let i = 0; i < members.length; i++) {
   ns.print(members[i])
