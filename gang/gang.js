@@ -67,17 +67,17 @@ for (let i = 0; i < members.length; i++) {
     for (let i = 0; i < upgrades.length; i++) {
       //let money = ns.getServerMoneyAvailable("home")
       let upgrade = upgrades[i]
-      let costRatio = ns.gang.getEquipmentCost(upgrade/money)
+      let costRatio = ns.gang.getEquipmentCost(upgrade)/money
       let type = ns.gang.getEquipmentType(upgrade)
       ns.print("upgrade", upgrade, ", type ", type, ", ratio ", costRatio)
       if(type=="Augmentation" && costRatio <= 0.1) {
         //augs.push(upgrade)
         ns.print("aug < 0.1? ", type=="Augmentation" && costRatio <= 0.1)
-        ns.gang.purchaseEquipment(upgrade)
+        ns.gang.purchaseEquipment(member, upgrade)
       }
       else if(costRatio <= 0.01) {
         //eq.push(upgrade)
-        ns.gang.purchaseEquipment(upgrade)
+        ns.gang.purchaseEquipment(member, upgrade)
       }
       
     }  
