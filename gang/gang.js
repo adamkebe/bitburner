@@ -54,6 +54,51 @@ for (let i = 0; i < members.length; i++) {
 }
   } // END FUNCTION
 
+  function buyUpgrades() {
+  // buys all augs then equipment below a certain % of total money
+  members = getMembers()
+    // gets all upgrade names
+    for (let i = 0; i < members.length; i++) {
+      member = members[i]
+      upgrades = ns.gang.getEquipmentNames(member)
+      augs = []
+      eq = []
+    for (let i = 0; i < upgrades.length; i++) {
+      upgrade = upgrades[i]
+      type = ns.gang.getEquipmentType(upgrade)
+      if(type="augmentation") {
+        augs.push(upgrade)
+      }
+      else {
+        eq.push(upgrade)
+      }
+      
+    }  
+    /*  forloop - buy aug if < 1/10 of server money
+      buy eq if < 1/100 server money 
+      */
+    }
+  
+  } // END FUNCTION
+/* function forLoop(array, fun) {
+  // 
+  for (let i = 0; i < array.length; i++) {
+    a = array[i]
+    fun(a)
+    return fun(a)
+  } // END FUNCTION */
+  
+/* FUNCTION TEMPLATE
+  function getMembers() {
+  // 
+  
+    return 
+  } // END FUNCTION
+*/
+  /* useful game functions
+  
+
+  */
   
   /*
   //STATES
@@ -73,7 +118,8 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   while(true) {
   getMembers()
   recruitMembers()
-    ascendMembers()
+  ascendMembers()
+  buyUpgrades()2
   
   
    await ns.gang.nextUpdate()
