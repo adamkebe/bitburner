@@ -68,10 +68,12 @@ cash(switch to cash producton)
 no war(when territory is 100% switch away from territory warfare) 
 buy player augs(add this at some stage, ensure ascension is rapid)
   */
-  
+
+//EXECUTE CODE
   while(true) {
   getMembers()
   recruitMembers()
+    ascendMembers()
   
   
    await ns.gang.nextUpdate()
