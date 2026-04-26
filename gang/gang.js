@@ -35,7 +35,7 @@ ns.gang.setMemberTask(name, "Train Combat")
   //ascends all members if they meet a certain condition 
     members = getMembers()
 for (let i = 0; i < members.length; i++) {
-  ns.print(members[i])
+  //ns.print(members[i])
   let ratios = ns.gang.getAscensionResult(members[i])
   if(ratios!=undefined) {
   let hack = ratios.hack
@@ -45,8 +45,8 @@ for (let i = 0; i < members.length; i++) {
   let agility = ratios.agi
   let charisma = ratios.cha
   let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
-  ns.print(ascensionRatios)
-  ns.print(Math.max(...ascensionRatios))
+  //ns.print(ascensionRatios)
+  //ns.print(Math.max(...ascensionRatios))
       if (Math.max(...ascensionRatios)>threshold) {
         ns.gang.ascendMember(members[i])
       }
@@ -59,18 +59,22 @@ for (let i = 0; i < members.length; i++) {
   members = getMembers()
     // gets all upgrade names
     for (let i = 0; i < members.length; i++) {
-      member = members[i]
-      upgrades = ns.gang.getEquipmentNames(member)
-      augs = []
-      eq = []
+      let member = members[i]
+      let upgrades = ns.gang.getEquipmentNames(member)
+      let augs = []
+      let eq = []
     for (let i = 0; i < upgrades.length; i++) {
-      upgrade = upgrades[i]
-      type = ns.gang.getEquipmentType(upgrade)
-      if(type="augmentation") {
-        augs.push(upgrade)
+      let money = ns.getServerMoneyAvailable("home")
+      let upgrade = upgrades[i]
+      let costRatio = ns.gang.getUpgradeCost(upgrade/money)
+      let type = ns.gang.getEquipmentType(upgrade)
+      if(type="augmentation" && costRatio <= 0.1) {
+        //augs.push(upgrade)
+        ns.gang.purchaseEquipment(upgrade)
       }
-      else {
-        eq.push(upgrade)
+      else if(costRatio <= 0.01) {
+        //eq.push(upgrade)
+        ns.gang.purchaseEquipment(upgrade)
       }
       
     }  
@@ -119,7 +123,7 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   getMembers()
   recruitMembers()
   ascendMembers()
-  buyUpgrades()2
+  buyUpgrades()
   
   
    await ns.gang.nextUpdate()
