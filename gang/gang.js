@@ -57,6 +57,7 @@ for (let i = 0; i < members.length; i++) {
   function buyUpgrades() {
   // buys all augs then equipment below a certain % of total money
   members = getMembers()
+    let money = ns.getServerMoneyAvailable("home")
     // gets all upgrade names
     for (let i = 0; i < members.length; i++) {
       let member = members[i]
@@ -64,12 +65,14 @@ for (let i = 0; i < members.length; i++) {
       let augs = []
       let eq = []
     for (let i = 0; i < upgrades.length; i++) {
-      let money = ns.getServerMoneyAvailable("home")
+      //let money = ns.getServerMoneyAvailable("home")
       let upgrade = upgrades[i]
       let costRatio = ns.gang.getEquipmentCost(upgrade/money)
       let type = ns.gang.getEquipmentType(upgrade)
-      if(type="augmentation" && costRatio <= 0.1) {
+      ns.print("upgrade", upgrade, ", type ", type, ", ratio ", costRatio)
+      if(type=="Augmentation" && costRatio <= 0.1) {
         //augs.push(upgrade)
+        ns.print("aug < 0.1? ", type=="Augmentation" && costRatio <= 0.1)
         ns.gang.purchaseEquipment(upgrade)
       }
       else if(costRatio <= 0.01) {
