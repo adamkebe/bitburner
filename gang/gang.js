@@ -66,7 +66,7 @@ for (let i = 0; i < members.length; i++) {
     for (let i = 0; i < upgrades.length; i++) {
       let money = ns.getServerMoneyAvailable("home")
       let upgrade = upgrades[i]
-      let costRatio = ns.gang.getUpgradeCost(upgrade/money)
+      let costRatio = ns.gang.getEquipmentCost(upgrade/money)
       let type = ns.gang.getEquipmentType(upgrade)
       if(type="augmentation" && costRatio <= 0.1) {
         //augs.push(upgrade)
