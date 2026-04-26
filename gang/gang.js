@@ -1,6 +1,6 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  //OPTIONS
+  //OPTIONS 
 
   //VARIABLES
   let members = []
