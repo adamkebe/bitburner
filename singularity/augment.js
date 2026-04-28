@@ -31,7 +31,7 @@ export async function main(ns) {
     name: null,
     cost: null,
     rep: null,
-    faction: null
+    faction: null,
     reset: function() {
       this.name = null
       this.cost = null
