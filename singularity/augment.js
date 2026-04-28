@@ -32,6 +32,13 @@ export async function main(ns) {
     cost: null,
     rep: null,
     faction: null
+    reset: function() {
+      this.name = null
+      this.cost = null
+      this.rep = null
+      this.faction = null
+      ns.print("maxAug reset: ", aug)
+  }
   }
 
 //options
@@ -109,8 +116,6 @@ function buyMaxAug() {
   ns.print("Max aug undefined? ", maxAug.name==undefined)
   if(maxAug.name!=undefined) {
    let success = ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
-    aug.reset()
-    maxAug.name = null
     if(!success) {
       canBuyAugs = false;
     }
@@ -119,6 +124,8 @@ function buyMaxAug() {
   ns.print("no purchasable augs")
     canBuyAugs = false;
   }
+  aug.reset()
+  maxAug.reset()
   } //end function
   
   /* Function template
