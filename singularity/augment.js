@@ -9,6 +9,7 @@ export async function main(ns) {
   let canBuyAugs = false
   let faction = null
   let money = 0
+  let n = 0
   let prereq = []
   let prereqOwned = null
   let reputation = 0
@@ -138,13 +139,15 @@ function buyMaxAug() {
   await ns.asleep(1000)
   }
   //purchasing loop while augs are available
-  while(canBuyAugs) {
+  while(canBuyAugs || n < 10) {
   getAllFactionAugs(faction);
   getAvailableFactionAugs();
   getMaxAug(faction);
   
   //Buy the max aug after all factions have been scanned
   buyMaxAug()
+  ns.asleep(200)
+  n++
   }
 
    
