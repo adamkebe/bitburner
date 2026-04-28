@@ -6,6 +6,7 @@ export async function main(ns) {
   let availableAugs = []
   let ownedAugs = []
   //vars
+  let canBuyAugs = false
   let faction = null
   let money = 0
   let prereq = []
@@ -106,12 +107,16 @@ function getMaxAug(faction) {
 function buyMaxAug() {
   ns.print("Max aug undefined? ", maxAug.name==undefined)
   if(maxAug.name!=undefined) {
-    ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
+   let success = ns.singularity.purchaseAugmentation(maxAug.faction, maxAug.name)
     aug.reset()
     maxAug.name = null
+    if(!success) {
+      canBuyAugs = false;
+    }
   }
   else {
   ns.print("no purchasable augs")
+    canBuyAugs = false;
   }
   } //end function
   
@@ -125,22 +130,21 @@ function buyMaxAug() {
   // set faction
   faction = "Slum Snakes"
   // initialloop waits for augmentation to be available 
-  //while(maxAug.name==undefined) {
+  while(!canBuyAugs) {
   getAllFactionAugs(faction);
   getAvailableFactionAugs();
   getMaxAug(faction);
+  canBuyAugs = maxAug.name!=undefined
   await ns.asleep(1000)
-  //}
+  }
   //purchasing loop while augs are available
-  while(maxAug.name!=undefined) {
+  while(canBuyAugs) {
   getAllFactionAugs(faction);
   getAvailableFactionAugs();
   getMaxAug(faction);
   
   //Buy the max aug after all factions have been scanned
   buyMaxAug()
-    await ns.asleep(200)
-    await ns.sleep(200)
   }
 
    
@@ -163,8 +167,8 @@ function buyMaxAug() {
 }
 */
   //backup and install augmentations 
-  ns.singularity.exportGame()
-  ns.singularity.installAugmentations()
+  //ns.singularity.exportGame()
+  //ns.singularity.installAugmentations()
 
 
 ns.exit()
