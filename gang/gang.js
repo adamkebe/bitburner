@@ -175,6 +175,7 @@ buy player augs(add this at some stage, ensure ascension is rapid)
     setTask(9, "Territory Warfare")
   // get Gang.getAllGangInformation()
     // Gang.getChanceToWinClash()
+    minWin = Math.min(ns.gang.getChanceToWinClash("The Black Hand"),ns.gang.getChanceToWinClash("Speakers for the Dead"))
   await ns.gang.nextUpdate()
   } //end of while loop
 
