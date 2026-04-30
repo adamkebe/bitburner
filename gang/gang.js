@@ -5,6 +5,7 @@ export async function main(ns) {
   //VARIABLES
   let member = null
   let members = []
+  let minWin = 0
   let n = 0
 
   //FUNCTIONS
@@ -166,12 +167,14 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   await ns.gang.nextUpdate()
   } //end of while loop
 
-  while(true) { //prepare for wat
+  while(minWin < 0.35) { //prepare for war
   getMembers()
   recruitMembers()
   ascendMembers()
   buyUpgrades()
     setTask(9, "Territory Warfare")
+  // get Gang.getAllGangInformation()
+    // Gang.getChanceToWinClash()
   await ns.gang.nextUpdate()
   } //end of while loop
 
