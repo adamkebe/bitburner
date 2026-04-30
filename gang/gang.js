@@ -96,7 +96,7 @@ for (let i = 0; i < members.length; i++) {
   member = members[i]
   // change "ratios" to "multis" or "values" so it makes sense
   let info = ns.gang.getMemberInformation(member)
-  if(ratios!=undefined) {
+  if(info!=undefined) {
   let hack = info.hack_asc_mult
   let strength = info.str_asc_mult
   let defence = info.def_asc_mult
