@@ -165,7 +165,16 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   setTask()
   await ns.gang.nextUpdate()
   } //end of while loop
-  
+
+  while(true) { //prepare for wat
+  getMembers()
+  recruitMembers()
+  ascendMembers()
+  buyUpgrades()
+    setTask(9, "Territory Warfare")
+  await ns.gang.nextUpdate()
+  } //end of while loop
+
   while(true) { //endgame (for now)
   getMembers()
   recruitMembers()
