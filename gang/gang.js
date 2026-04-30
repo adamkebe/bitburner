@@ -95,18 +95,18 @@ for (let i = 0; i < members.length; i++) {
   //ns.print(members[i])
   member = members[i]
   // change "ratios" to "multis" or "values" so it makes sense
-  let ratios = ns.gang.getMemberInfo(members[i])
+  let info = ns.gang.getMemberInformation(member)
   if(ratios!=undefined) {
-  let hack = ratios.hack_asc_mult
-  let strength = ratios.str_asc_mult
-  let defence = ratios.def_asc_mult
-  let dexterity = ratios.dex_asc_mult
-  let agility = ratios.agi_asc_mult
-  let charisma = ratios.cha_asc_mult
-  let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
+  let hack = info.hack_asc_mult
+  let strength = info.str_asc_mult
+  let defence = info.def_asc_mult
+  let dexterity = info.dex_asc_mult
+  let agility = info.agi_asc_mult
+  let charisma = info.cha_asc_mult
+  let ascensionMultis = [hack, strength, defence, dexterity, agility, charisma]
   //ns.print(ascensionRatios)
   //ns.print(Math.max(...ascensionRatios))
-      if (Math.max(...ascensionRatios)>threshold) {
+      if (Math.max(...ascensionMultis)>threshold) {
         ns.gang.setMemberTask(member, task)
       }
   }
