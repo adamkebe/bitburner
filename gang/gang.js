@@ -3,6 +3,7 @@ export async function main(ns) {
   //OPTIONS 
 
   //VARIABLES
+  let member = null
   let members = []
   let n = 0
 
@@ -87,6 +88,30 @@ for (let i = 0; i < members.length; i++) {
     }
   
   } // END FUNCTION
+  function setTask(threshold = 6, task = "Terrorism") {
+  //sets task for members if they meet a certain condition 
+    members = getMembers()
+for (let i = 0; i < members.length; i++) {
+  //ns.print(members[i])
+  member = members[i]
+  // change "ratios" to "multis" or "values" so it makes sense
+  let ratios = ns.gang.gangMemberInfo(members[i])
+  if(ratios!=undefined) {
+  let hack = ratios.hack_asc_mult
+  let strength = ratios.str_asc_mult
+  let defence = ratios.def_asc_mult
+  let dexterity = ratios.dex_asc_mult
+  let agility = ratios.agi_asc_mult
+  let charisma = ratios.cha_asc_mult
+  let ascensionRatios = [hack, strength, defence, dexterity, agility, charisma]
+  //ns.print(ascensionRatios)
+  //ns.print(Math.max(...ascensionRatios))
+      if (Math.max(...ascensionRatios)>threshold) {
+        ns.gang.setMemberTask(member, task)
+      }
+  }
+}
+  } // END FUNCTION
 /* function forLoop(array, fun) {
   // 
   for (let i = 0; i < array.length; i++) {
@@ -122,14 +147,31 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   */
 
 //EXECUTE CODE
-  while(true) {
+  while(members == []) {
+    members = getMembers()
+    } //end of while loop
+  while(members.length < 3) { //get first members
+  members = getMembers()
+  recruitMembers()
+  ascendMembers()
+  buyUpgrades()
+  await ns.gang.nextUpdate()
+  } //end of while loop
+  while(members.length < 9) { //expand to 9 members
+  members = getMembers()
+  recruitMembers()
+  ascendMembers(1.25)
+  buyUpgrades()
+  setTask()
+  await ns.gang.nextUpdate()
+  } //end of while loop
+  
+  while(true) { //endgame (for now)
   getMembers()
   recruitMembers()
   ascendMembers()
   buyUpgrades()
-  
-  
-   await ns.gang.nextUpdate()
-    //n += 1 ; ns.print("n ", n)
+  await ns.gang.nextUpdate()
   } //end of while loop
+  
 }
