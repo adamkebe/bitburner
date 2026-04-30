@@ -66,17 +66,17 @@ for (let i = 0; i < members.length; i++) {
       let augs = []
       let eq = []
     for (let i = 0; i < upgrades.length; i++) {
-      //let money = ns.getServerMoneyAvailable("home")
+      money = ns.getServerMoneyAvailable("home")
       let upgrade = upgrades[i]
       let costRatio = ns.gang.getEquipmentCost(upgrade)/money
       let type = ns.gang.getEquipmentType(upgrade)
       ns.print("upgrade", upgrade, ", type ", type, ", ratio ", costRatio)
-      if(type=="Augmentation" && costRatio <= 0.1) {
+      if(type=="Augmentation" && costRatio <= 0.25) {
         //augs.push(upgrade)
         ns.print("aug < 0.1? ", type=="Augmentation" && costRatio <= 0.1)
         ns.gang.purchaseEquipment(member, upgrade)
       }
-      else if(costRatio <= 0.01) {
+      else if(costRatio <= 0.05) {
         //eq.push(upgrade)
         ns.gang.purchaseEquipment(member, upgrade)
       }
@@ -95,7 +95,7 @@ for (let i = 0; i < members.length; i++) {
   //ns.print(members[i])
   member = members[i]
   // change "ratios" to "multis" or "values" so it makes sense
-  let ratios = ns.gang.gangMemberInfo(members[i])
+  let ratios = ns.gang.getMemberInfo(members[i])
   if(ratios!=undefined) {
   let hack = ratios.hack_asc_mult
   let strength = ratios.str_asc_mult
