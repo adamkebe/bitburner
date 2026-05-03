@@ -170,7 +170,7 @@ buy player augs(add this at some stage, ensure ascension is rapid)
   while(minWin < 0.35) { //prepare for war
   ns.print("checking min win %")
   minWin = Math.min(ns.gang.getChanceToWinClash("The Black Hand"),ns.gang.getChanceToWinClash("Speakers for the Dead"))
-  ns.orint("min win: ", minWin)
+  ns.print("min win: ", minWin)
   ns.exit()
     getMembers()
   recruitMembers()
