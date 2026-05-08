@@ -23,14 +23,16 @@ export async function main(ns) {
   for (let i = 0; i < list.length; i++) {
     let t = list[i]; ns.print(t);
     let rooted = ns.hasRootAccess(t); //ns.tprint(rooted, " Does rooted = true? ", rooted===true);
-    let ports = ns.getServerNumPortsRequired(t); //ns.tprint(ports);
+    if (!t.includes("hack")) {
+      ports = ns.getServerNumPortsRequired(t); //ns.tprint(ports);
+      hacklevel = ns.getServerRequiredHackingLevel(t); //ns.tprint(hacklevel);
+    }
     let maxports = 0;
     if (ns.fileExists("bruteSSH.exe", "home")) { maxports++ }
     if (ns.fileExists("relaySMTP.exe", "home")) { maxports++ }
     if (ns.fileExists("FTPCrack.exe", "home")) { maxports++ }
     if (ns.fileExists("HTTPWorm.exe", "home")) { maxports++ }
     if (ns.fileExists("SQLInject.exe", "home")) { maxports++ }
-    let hacklevel = ns.getServerRequiredHackingLevel(t); //ns.tprint(hacklevel);
     let terminalPrint = false
     let interestingServers = ["CSEC", "avmnite-02h", "I.I.I.I", "run4theh111z", "Daedalus", "w0rldd4emon"]
     if (interestingServers.includes(t)) {
