@@ -44,8 +44,8 @@ export async function main(ns) {
         ns.tprint(t, " -already rooted")
       }
       numOldHacked += 1;
-      //if(!ns.isRunning("hack.js", "home", t) && ns.getPurchasedServers().indexOf(t) <= 0 && t != "hack") {ns.exec("d-all.js","home", 1, "home",t)}
-    }
+      //if(!ns.isRunning("hwgw.js", "home", t) && ns.cloud.getServerNames().indexOf(t) <= 0 && !t.includes("hack")) {ns.exec("hwgw.js","home", 1,t)}
+       }
     else if (ports > maxports) {
       ns.print(t, " -too many ports (", ports, "), hack level ", hacklevel)
       if(terminalPrint) {
