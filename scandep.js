@@ -18,7 +18,8 @@ export async function main(ns) {
   let numMinHack = 0
   let minPorts = null;
   let minHack = null;
-
+  let ports = 0
+  let hacklevel = 0
  
   for (let i = 0; i < list.length; i++) {
     let t = list[i]; ns.print(t);
