@@ -4,7 +4,11 @@ export async function main(ns) {
 
 // buy Tor
   while(true) {
-ns.singularity.purchaseTor()
+while(ns.getServerMoneyAvailable("home")<200000) {
+  await ns.sleep(1000)
+      ns.getServerMoneyAvailable("home")
+}
+  ns.singularity.purchaseTor()
     let programs = ns.singularity.getDarkwebPrograms()
     for( let i = 0; i<(programs.length -1) ; i++) {
 ns.singularity.purchaseProgram(programs[i])
