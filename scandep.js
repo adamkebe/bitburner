@@ -26,7 +26,7 @@ export async function main(ns) {
     ns.tprint("batch all")
   }
 
-  function batchAll(on) {
+  function batchAll(on, t) {
     let batching = ns.isRunning("hwgw.js", "home", t)
     let notCloud = ns.cloud.getServerNames().indexOf(t) <= 0
     if(on && !batching && notCloud) {
@@ -58,7 +58,7 @@ export async function main(ns) {
         ns.tprint(t, " -already rooted")
       }
       numOldHacked += 1;
-      batchAll(batch) //if(!ns.isRunning("hwgw.js", "home", t) && ns.cloud.getServerNames().indexOf(t) <= 0 && !t.includes("hack")) {ns.exec("hwgw.js","home", 1,t)}
+      batchAll(batch, t) //if(!ns.isRunning("hwgw.js", "home", t) && ns.cloud.getServerNames().indexOf(t) <= 0 && !t.includes("hack")) {ns.exec("hwgw.js","home", 1,t)}
        }
     else if (ports > maxports) {
       ns.print(t, " -too many ports (", ports, "), hack level ", hacklevel)
