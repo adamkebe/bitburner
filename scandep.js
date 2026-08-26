@@ -2,7 +2,7 @@
 export async function main(ns) {
   let fileContent = ns.read("allservers.txt");
   let list = JSON.parse(fileContent);
-  //ns.tprint(list); // Access data
+  //ns.tprint(list); // Access data 
   let debugLog = false
   let argarray = ns.args
   if(argarray.includes("debug")) {
