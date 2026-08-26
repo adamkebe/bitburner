@@ -29,7 +29,7 @@ export async function main(ns) {
   function batchAll(on, t) {
     let batching = ns.isRunning("hwgw.js", "home", t)
     let notCloud = ns.cloud.getServerNames().indexOf(t) <= 0
-    if(on && !batching && notCloud) {
+    if(on && !batching && notCloud && !t.includes("hack")) {
       ns.exec("hwgw.js","home", 1,t)
     }
   }
