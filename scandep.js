@@ -20,7 +20,21 @@ export async function main(ns) {
   let minHack = null;
   let ports = 0
   let hacklevel = 0
- 
+  let batch = false
+  if(argarray.includes("batch")) {
+    batch = true
+    ns.tprint("batch all")
+  }
+
+  function batchall(on) {
+    /*
+
+    on = batch
+    if(on) {}
+    !ns.isRunning("hwgw.js", "home", t) && ns.cloud.getServerNames().indexOf(t) <= 0 && !t.includes("hack")) {ns.exec("hwgw.js","home", 1,t)}
+  */
+  }
+  
   for (let i = 0; i < list.length; i++) {
     let t = list[i]; ns.print(t);
     let rooted = ns.hasRootAccess(t); //ns.tprint(rooted, " Does rooted = true? ", rooted===true);
